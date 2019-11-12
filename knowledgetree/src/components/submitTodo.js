@@ -1,12 +1,14 @@
 import React from 'react';
 import './submitTodo.css';
 import firebase from '../config/fbconfig.js'
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 class submitTodo extends React.Component {
 
   constructor() {
       super();
       this.state = {
+        startDate: new Date(),
         todoname: '',
         todotime: '',
       }
@@ -22,14 +24,19 @@ class submitTodo extends React.Component {
       this.setState({
         todoname: e.target.value
       });
-    }
-    handleChangeTodoTime(e) {
-      this.setState({
-        todotime: e.target.value
-      });
-    }
+    };
+    handleChangeTodoTime= date => {
+
+      var realDate = date.toISOString().split('T')[0];
+      console.log(realDate)
+    this.setState({
+      startDate: date,
+      todotime: realDate
+    });
+    };
 
     handleSubmit(e) {
+      console.log("gg");
       e.preventDefault();
       if(this.state.todoname){
       const courseRef = firebase.database().ref('todo');
@@ -43,7 +50,7 @@ class submitTodo extends React.Component {
         todoname: '',
       });
       document.getElementById("input_todo_name").value = "";
-      document.getElementById("input_todo_time").value = "";
+      //document.getElementById("input_todo_time").value = "";
     }
     else{
       alert("Todo need a name");
@@ -51,15 +58,27 @@ class submitTodo extends React.Component {
     }
 
 
+
 render() {
   return(
-    <div id="input_div">
+    <div id ="main">
     <form onSubmit={this.handleSubmit}>
-       <input id="input_todo_name"type="text" name="addTodo" placeholder="add a Todo?" onChange={this.handleChangeTodoName} />
-       <input id="input_todo_time"type="date" name="addTime" placeholder="When is the due?" onChange={this.handleChangeTodoTime} />
-       <button className="yg_bt_hover_shadow yg_bt_blue">Add Todo</button>
-     </form>
+    <div className="wrapper">
+       <input id="input_todo_name"type="text" name="addTodo" onChange={this.handleChangeTodoName} required/>
+       <label htmlFor="addTodo">
+           <span>
+               Todo Name
+           </span>
+       </label>
+        </div>
+        </form>
+        <DatePicker
+                id ="datepicker"
+                selected={this.state.startDate}
+                onChange={this.handleChangeTodoTime}
+              />
      </div>
+
   );
 }
 
