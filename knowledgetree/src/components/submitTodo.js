@@ -57,7 +57,7 @@ render() {
     <form onSubmit={this.handleSubmit}>
        <input id="input_todo_name"type="text" name="addTodo" placeholder="add a Todo?" onChange={this.handleChangeTodoName} />
        <input id="input_todo_time"type="date" name="addTime" placeholder="When is the due?" onChange={this.handleChangeTodoTime} />
-       <button class="yg_bt_hover_shadow yg_bt_blue">Add Todo</button>
+       <button className="yg_bt_hover_shadow yg_bt_blue">Add Todo</button>
      </form>
      </div>
   );

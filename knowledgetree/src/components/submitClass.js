@@ -44,10 +44,16 @@ class submitClass extends React.Component {
 
 render() {
   return(
-    <form onSubmit={this.handleSubmit}>
-       <input id="input_course_name"type="text" name="addClass" placeholder="add a class?" onChange={this.handleChange} />
-       <button>Add Class</button>
-     </form>
+    <div className="wrapper">
+    <form onSubmit={this.handleSubmit} autoComplete="off">
+        <input type="text" id="input_course_name" name="addClass" onChange={this.handleChange} required />
+        <label htmlFor="addClass">
+            <span>
+                Course Name
+            </span>
+        </label>
+        </form>
+    </div>
   );
 }
 

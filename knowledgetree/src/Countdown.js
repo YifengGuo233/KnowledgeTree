@@ -1,11 +1,7 @@
 import React from 'react';
 import './Countdown.css';
-import Navbar from './Navbar';
-import Class from './Class';
-import Card from './components/Card';
 import SubmitTodo from './components/submitTodo';
 import firebase from './config/fbconfig.js'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 //https://www.npmjs.com/package/react-countdown-now
 import Countdown from 'react-countdown-now';
@@ -50,12 +46,10 @@ delete(e){
 }
 
 complete(e){
-  var name = e.target.parentNode.children[1];
-  var time = e.target.parentNode.children[2];
   var tof = e.target.className
   //console.log(e.target.parentNode.children[2]);
   var completeorNot = false;
-  if(tof == "true"){
+  if(tof === "true"){
     console.log("change to false")
     completeorNot = false;
   }
@@ -64,8 +58,6 @@ complete(e){
     completeorNot = true;
   }
   const todo = {
-    // name: name,
-    // time: time,
     complete: completeorNot
   }
   var itemId = e.target.parentNode.id;
@@ -80,7 +72,7 @@ render() {
     <p>Clock Page</p>
 <SubmitTodo />
 {this.state.countdownlist.map((d) =>
-  <div class='tododiv' id={d.id}>
+  <div key={d.id} className='tododiv' id={d.id}>
   <Countdown date={new Date(d.time) + 5000}/>
   <p>{d.name}</p>
   <p>{d.time}</p>

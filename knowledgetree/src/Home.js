@@ -1,11 +1,8 @@
 import React from 'react';
 import './Home.css';
-import Navbar from './Navbar';
-import Class from './Class';
 import Card from './components/Card';
 import SubmitClass from './components/submitClass';
 import firebase from './config/fbconfig.js'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 class Home extends React.Component {
 
@@ -36,16 +33,14 @@ class Home extends React.Component {
 
 render() {
   return (
-    <div>
-    <p>Home Page</p>
-
+    <div id="home_canvas">
     <SubmitClass />
     <div className="grid-container">
       {this.state.classlist.map((d) =>
         <Card key={d} nametext ={d}/>
       )}
     </div>
-      </div>
+    </div>
   );
 
 };

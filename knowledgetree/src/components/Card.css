@@ -5,15 +5,15 @@
   height: 89%;
   text-align: center;
   margin: auto;
-  background-color: lightblue;
+  background-color: orange;
   -webkit-box-shadow: 10px 13px 10px -12px rgba(0,0,0,0.64);
   box-shadow: 10px 13px 10px -12px rgba(0,0,0,0.64);
 }
 
 .card_box:hover{
-  border-width: 2.2px;
+  /* border-width: 2.2px;
   transition-duration: 1s;
-  transform: scale(1.05);
+  transform: scale(1.05); */
 }
 
 a {
@@ -23,3 +23,27 @@ a {
   padding: 14px 16px;
   text-decoration: none;
 }
+/* .detail-btn{
+  z-index: 999;
+  box-sizing: border-box;
+  background-color: transparent;
+  border: 2px solid $red;
+  border-radius: 0.6em;
+  display: flex;
+  align-self: center;
+  margin: 20px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+} */
+.btn-lighteffect {
+  border-color: #2ecc71;
+  box-shadow: 0 0 40px 40px $blue inset, 0 0 0 0 #2ecc71;
+  transition: all 150ms ease-in-out;
+}
+.btn-lighteffect:hover {
+    box-shadow: 0 0 10px 0 #2ecc71 inset, 0 0 10px 4px #2ecc71;
+  }

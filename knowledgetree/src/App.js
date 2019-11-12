@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Card from './components/Card';
 import Navbar from './Navbar';
 import About from './About';
 import User from './User';

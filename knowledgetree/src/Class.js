@@ -1,7 +1,5 @@
 import React from 'react';
 import './Home.css';
-import Card from './components/Card';
-import firebase from './config/fbconfig.js'
 
 class Class extends React.Component {
 

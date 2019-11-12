@@ -13,15 +13,11 @@ class Card extends React.Component{
 
   render(){
   return(
-    <div className="card_box">
-
-      <p></p>
-        <Link to={{ pathname: '/Class', state: {currentClass: this.props.nametext} }}>{this.props.nametext}</Link>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
-      <p></p>
+    <div className="card_box btn-lighteffect">
+        <Link to={{ pathname: '/Class', state: {currentClass: this.props.nametext} }}>
+        <p>Course name: {this.props.nametext}</p>
+        <p>aa</p>
+        </Link>
     </div>
   );
 }
