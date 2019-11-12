@@ -7,7 +7,6 @@ function User() {
     <div>
   <p>User Page</p>
   <Card />
-
       </div>
   );
 }

@@ -2,16 +2,24 @@
   border-style: solid;
   border-width: 2px;
   width: 93%;
-  height: 93%;
+  height: 89%;
   text-align: center;
   margin: auto;
   background-color: lightblue;
   -webkit-box-shadow: 10px 13px 10px -12px rgba(0,0,0,0.64);
-box-shadow: 10px 13px 10px -12px rgba(0,0,0,0.64);
+  box-shadow: 10px 13px 10px -12px rgba(0,0,0,0.64);
 }
 
 .card_box:hover{
   border-width: 2.2px;
   transition-duration: 1s;
   transform: scale(1.05);
+}
+
+a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
