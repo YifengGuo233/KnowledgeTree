@@ -8,6 +8,8 @@
     "react-countdown-now": "^2.1.2",
     "react-datepicker": "^2.10.0",
     "react-dom": "^16.11.0",
+    "react-native-button": "^2.4.0",
+    "react-native-countdown-component": "^2.6.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },

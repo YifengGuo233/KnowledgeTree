@@ -6,6 +6,20 @@ import firebase from './config/fbconfig.js'
 //https://www.npmjs.com/package/react-countdown-now
 import Countdown from 'react-countdown-now';
 
+// Random component
+const Completionist = () => <span>You are good to go!</span>;
+
+// Renderer callback with condition
+const renderer = ({ days, hours, minutes, seconds, completed }) => {
+  if (completed) {
+    // Render a completed state
+    return <Completionist />;
+  } else {
+    // Render a countdown
+    return <span>Day {days}:Hours {hours}:Min {minutes}:Sec {seconds}</span>;
+  }
+};
+
 class Countdowntimer extends React.Component {
 
   constructor() {
@@ -66,18 +80,25 @@ complete(e){
   itemRef.update(todo);
 }
 
+
+
+
 render() {
   return (
     <div>
     <p>Clock Page</p>
 <SubmitTodo />
+  <p>{Date.now()}</p>
 {this.state.countdownlist.map((d) =>
-  <div key={d.id} className='tododiv' id={d.id}>
-  <Countdown date={new Date(d.time) + 5000}/>
+   <div key={d.id} className='tododiv' id={d.id}>
+  <Countdown
+  date={new Date(d.time)}
+  renderer={renderer}
+  />
   <p>{d.name}</p>
   <p>{d.time}</p>
   <button className={d.complete.toString()} onClick={this.complete} >O</button>
-  <button onClick={this.delete}>X</button>
+  <button className="deletebtn" onClick={this.delete}>X</button>
   </div>
 )}
       </div>

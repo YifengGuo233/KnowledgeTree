@@ -94,10 +94,10 @@ form{
     transition: all .6s ease;
 }
 
-#input_todo_name{
+/* #input_todo_name{
   width: 200px;
   height: 50px;
-}
+} */
 
 #main{
   text-align: center;
