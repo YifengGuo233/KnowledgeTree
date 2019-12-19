@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.7.2",
     "firebase": "^7.3.0",
     "react": "^16.11.0",
     "react-countdown-now": "^2.1.2",
@@ -10,6 +11,7 @@
     "react-dom": "^16.11.0",
     "react-native-button": "^2.4.0",
     "react-native-countdown-component": "^2.6.0",
+    "react-particles-js": "^2.7.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },

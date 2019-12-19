@@ -1,0 +1,33 @@
+#profile_box{
+ margin-left: 5%;
+ width: 40%;
+ height: auto;
+ background: #999;
+ border-radius: .3em;
+ text-align: center;
+ padding-top: 20px;
+ padding-bottom: 20px;
+}
+#profile_username{
+
+}
+#profile_image{
+    height: 6.23em;
+    width: 6.23em;
+    border-radius: 18em;
+    border-width: 3px;
+    border-style:solid;
+}
+
+.profile_info{
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top:5px;
+  margin-bottom:5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  /* border-width: 1px;
+  border-style: solid; */
+}

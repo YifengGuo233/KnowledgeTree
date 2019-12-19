@@ -7,16 +7,20 @@ class Card extends React.Component{
   constructor(props) {
       super(props)
         this.state = {
-          name:props.nametext
+          name:props.nametext,
+          id: props.classid
         }
     }
 
   render(){
   return(
     <div className="card_box btn-lighteffect">
-        <Link to={{ pathname: '/Class', state: {currentClass: this.props.nametext} }}>
-        <p>Course name: {this.props.nametext}</p>
-        <p>aa</p>
+        <Link to={{ pathname: '/Class', state: {
+          currentClass: this.props.nametext,
+          currentClassId: this.props.classid
+        } }}>
+        <p>Course Name: {this.props.nametext}</p>
+        <p>Instructor Name:</p>
         </Link>
     </div>
   );

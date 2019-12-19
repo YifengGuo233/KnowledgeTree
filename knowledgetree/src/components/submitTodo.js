@@ -26,9 +26,9 @@ class submitTodo extends React.Component {
       });
     };
     handleChangeTodoTime= date => {
-
       var realDate = date.toISOString().split('T')[0];
       console.log(realDate)
+      console.log(date)
     this.setState({
       startDate: date,
       todotime: realDate
@@ -36,21 +36,39 @@ class submitTodo extends React.Component {
     };
 
     handleSubmit(e) {
-      console.log("gg");
       e.preventDefault();
+      var todo = {};
       if(this.state.todoname){
+        if(this.state.todotime == ""){
+          var day = new Date().getDate();
+          var month = new Date().getMonth() + 1; //Current Month
+          var year = new Date().getFullYear(); //Current Year
+          var hours = new Date().getHours(); //Current Hours
+          var min = new Date().getMinutes(); //Current Minutes
+          var sec = new Date().getSeconds(); //Current Seconds
+          var date = (year+"-"+month+"-"+day).toString();
+          console.log(date)
+          todo = {
+            name: this.state.todoname,
+            time: date,
+            complete: false
+          }
+        }
+        else{
+          todo = {
+            name: this.state.todoname,
+            time: this.state.todotime,
+            complete: false
+          }
+        }
       const courseRef = firebase.database().ref('todo');
-      const todo = {
-        name: this.state.todoname,
-        time: this.state.todotime,
-        complete: false
-      }
+
       courseRef.push(todo);
       this.setState({
-        todoname: '',
+        todoname: "",
+        todotime: "",
       });
       document.getElementById("input_todo_name").value = "";
-      //document.getElementById("input_todo_time").value = "";
     }
     else{
       alert("Todo need a name");

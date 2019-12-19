@@ -16,7 +16,11 @@ const renderer = ({ days, hours, minutes, seconds, completed }) => {
     return <Completionist />;
   } else {
     // Render a countdown
-    return <span>Day {days}:Hours {hours}:Min {minutes}:Sec {seconds}</span>;
+    return <div>
+    <p>===D:H:M:S===</p>
+     <p>{days}:{hours}:{minutes}:{seconds}</p>
+
+    </div>;
   }
 };
 
@@ -88,7 +92,6 @@ render() {
     <div>
     <p>Clock Page</p>
 <SubmitTodo />
-  <p>{Date.now()}</p>
 {this.state.countdownlist.map((d) =>
    <div key={d.id} className='tododiv' id={d.id}>
   <Countdown
@@ -98,7 +101,7 @@ render() {
   <p>{d.name}</p>
   <p>{d.time}</p>
   <button className={d.complete.toString()} onClick={this.complete} >O</button>
-  <button className="deletebtn" onClick={this.delete}>X</button>
+  <button variant="contained" color="primary" className="deletebtn" onClick={this.delete}>X</button>
   </div>
 )}
       </div>

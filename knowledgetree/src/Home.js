@@ -3,7 +3,6 @@ import './Home.css';
 import Card from './components/Card';
 import SubmitClass from './components/submitClass';
 import firebase from './config/fbconfig.js'
-
 class Home extends React.Component {
 
   constructor() {
@@ -20,25 +19,31 @@ class Home extends React.Component {
       //console.log(grabed_items);
       let newclasslist = [];
       for (let item in grabed_items) {
-        //console.log(grabed_items[item].name);
-        newclasslist.push(grabed_items[item].name);
+        newclasslist.push({
+          key: item,
+          value: grabed_items[item].name
+        });
       }
       this.setState({
         classlist: newclasslist
       });
     });
-    console.log(this.state.classlist);
   }
 
 
 render() {
   return (
     <div id="home_canvas">
+
     <SubmitClass />
     <div className="grid-container">
-      {this.state.classlist.map((d) =>
-        <Card key={d} nametext ={d}/>
-      )}
+    {this.state.classlist.map((element, index) =>
+          <Card
+          key={element.key}
+          nametext={element.value}
+          classid={element.key.toString()}
+          />
+        )}
     </div>
     </div>
   );

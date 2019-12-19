@@ -1,11 +1,11 @@
 import React from 'react';
 import './User.css';
-import Card from './components/Card';
+import Profile from './components/Profile';
 function User() {
   return (
     <div>
   <p>User Page</p>
-  <Card />
+  <Profile />
       </div>
   );
 }
