@@ -3,6 +3,8 @@ import './Home.css';
 import './Section.css';
 import SectionCard from './components/SectionCard';
 import firebase from './config/fbconfig.js'
+//https://www.npmjs.com/package/@fortawesome/react-fontawesome
+import KnowledgePointCard from './components/KnowledgePointCard';
 
 
 class Class extends React.Component {
@@ -17,47 +19,58 @@ class Class extends React.Component {
         content: ""
       }
       this.handleSubmit = this.handleSubmit.bind(this);
-      console.log("sss"+this.state.classid)
+      this.handleChange = this.handleChange.bind(this);
     }
 
-    componentWillUnmount() {
-        this._isMounted = false;
-      }
-
-      componentDidMount() {
-          this._isMounted = true;
-      }
+componentDidMount(){
+  const itemsRef = firebase.database().ref('course/'+this.state.classid+"/section/"+this.state.sectionId);
+  itemsRef.on('value', (snapshot) => {
+    let grabed_items = snapshot.val();
+    console.log(grabed_items.content);
+    this.setState({
+      content: grabed_items.content
+    });
+  });
+}
 
   handleSubmit(e) {
     e.preventDefault();
-    if(this._isMounted){
     const sectionRef = firebase.database().ref('course/'+this.state.classid+"/section/"+this.state.sectionId);
     const note = {
+      name: this.state.sectionName,
       content: this.state.content
     }
     console.log(sectionRef)
-    sectionRef.push(note);
-    // this.setState({
-    //   sectionname: ''
-    // });
+    console.log(note)
+    sectionRef.set(note);
   }
-  else{
-    alert("整啥呢你");
+
+
+  handleChange(){
+    var notehtml = document.getElementById("mainnote").value;
+    this.setState({
+      content: notehtml
+    });
   }
-  }
+
 
 render() {
   return (
     <div id="main_canvas">
-    <SectionCard
-    key={this.state.sectionId}
+    <KnowledgePointCard
     sectiontext={this.state.sectionName}
-    sectionid={this.state.sectionId}
     />
+    <div class="wrap">
+     <div class="toolbar">
+        <button id="bold" title="Bold" class="bnt"><i class="fas fa-bold"></i></button>
+        <button id="italic" title="Italic" class="bnt"><i class="fas fa-italic"></i></button>
+        <button id="underilne" title="Underilne" class="bnt"><i class="fa fa-underline"></i></button>
     <form onSubmit={this.handleSubmit} autoComplete="off">
-    <textarea id="mainnote" type="text" name="note"></textarea>
-    <input type="submit"/>
+    <input id="submitinput" type="submit"/>
+    <textarea onChange={this.handleChange} id="mainnote" type="text" name="note" value={this.state.content}></textarea>
     </form>
+    </div>
+    </div>
     </div>
   );
 

@@ -1,18 +1,25 @@
-import React from 'react';
+import React, { useCallback, useContext } from "react";
 import './Home.css';
 import Card from './components/Card';
 import SubmitClass from './components/submitClass';
 import firebase from './config/fbconfig.js'
-class Home extends React.Component {
+//import Signup from './config/Signup.js'
+// import { AuthContext } from "./config/Auth.js";
 
-  constructor() {
-      super();
+
+
+
+class Home extends React.Component {
+  constructor(props) {
+      super(props);
       this.state = {
         classlist:[]
       }
+      console.log(window.location);
     }
 
   componentDidMount() {
+    //console.log(this.state.currentuser);
     const itemsRef = firebase.database().ref('course');
     itemsRef.on('value', (snapshot) => {
       let grabed_items = snapshot.val();
@@ -45,6 +52,10 @@ render() {
           />
         )}
     </div>
+    <button onClick={() => {
+      firebase.auth().signOut();
+    }
+    }>Sign out</button>
     </div>
   );
 

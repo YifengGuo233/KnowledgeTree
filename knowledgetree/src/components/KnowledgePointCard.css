@@ -5,7 +5,7 @@
   height: 89%;
   text-align: center;
   margin: auto;
-  background-color: #6699ff;
+  margin-top: 20px;
   -webkit-box-shadow: 10px 13px 10px -12px rgba(0,0,0,0.64);
   box-shadow: 10px 13px 10px -12px rgba(0,0,0,0.64);
 }

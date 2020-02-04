@@ -8,13 +8,15 @@ class KnowledgePointCard extends React.Component{
       super(props)
         this.state = {
           name:props.sectiontext,
-          id: props.sectionid
+          //暂时用不到
+          //id: props.sectionid
         }
     }
 
   render(){
   return(
     <div className="Knowledge_card_box">
+    <p>{this.state.name}</p>
     </div>
   );
 }

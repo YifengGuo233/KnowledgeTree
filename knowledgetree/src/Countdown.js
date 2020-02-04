@@ -6,20 +6,17 @@ import firebase from './config/fbconfig.js'
 //https://www.npmjs.com/package/react-countdown-now
 import Countdown from 'react-countdown-now';
 
-// Random component
-const Completionist = () => <span>You are good to go!</span>;
-
 // Renderer callback with condition
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
     // Render a completed state
-    return <Completionist />;
+    return <div>
+    <span>N/A</span>
+    </div>;
   } else {
     // Render a countdown
     return <div>
-    <p>===D:H:M:S===</p>
      <p>{days}:{hours}:{minutes}:{seconds}</p>
-
     </div>;
   }
 };
